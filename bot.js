@@ -1,13 +1,20 @@
 const TelegramBot = require('node-telegram-bot-api');
+const express = require('express');
 require('dotenv').config();
 
-console.log(process.env.TELEGRAM_TOKEN)
-
-// Replace with your token from BotFather
+const app = express();
 const token = process.env.TELEGRAM_TOKEN;
 
-// Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(token, { polling: true });
+const bot = new TelegramBot(token);
+bot.setWebHook(`${process.env.RENDER_EXTERNAL_URL}/bot${token}`);
+
+app.use(express.json());
+
+// This endpoint will be called by Telegram when a new message arrives
+app.post(`/bot${token}`, (req, res) => {
+  bot.processUpdate(req.body);
+  res.sendStatus(200);
+});
 
 let waitingUsers = [];
 let activeChats = {};
@@ -68,4 +75,10 @@ bot.on('message', (msg) => {
   } else {
     bot.sendMessage(chatId, 'You are not currently in a chat. Type /join to start.');
   }
+});
+
+// Start express server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
