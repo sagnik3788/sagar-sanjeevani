@@ -6,7 +6,7 @@ const app = express();
 
 // Hardcoded token and URL
 const token = '7211458319:AAE4alBwS2Sf5CDBj-uKpAk9zwk0bBDMcQc';
-const webhookUrl = 'https://tele4.onrender.com';
+const webhookUrl = 'https://tele-4.onrender.com/';
 
 // Initialize the bot
 const bot = new TelegramBot(token);
