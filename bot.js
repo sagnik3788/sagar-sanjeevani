@@ -1,13 +1,18 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
-require('dotenv').config();
 
+// Create an instance of express
 const app = express();
-const token = process.env.TELEGRAM_TOKEN;
 
+// Hardcoded token and URL
+const token = '7211458319:AAE4alBwS2Sf5CDBj-uKpAk9zwk0bBDMcQc';
+const webhookUrl = 'https://tele4.onrender.com';
+
+// Initialize the bot
 const bot = new TelegramBot(token);
-bot.setWebHook(`${process.env.RENDER_EXTERNAL_URL}/bot${token}`);
+bot.setWebHook(`${webhookUrl}/bot${token}`);
 
+// Middleware to parse JSON
 app.use(express.json());
 
 // This endpoint will be called by Telegram when a new message arrives
@@ -19,11 +24,13 @@ app.post(`/bot${token}`, (req, res) => {
 let waitingUsers = [];
 let activeChats = {};
 
+// Handle the /start command
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId, 'Welcome to the anonymous chat bot! Type /join to start chatting with a random user.');
 });
 
+// Handle the /join command
 bot.onText(/\/join/, (msg) => {
   const chatId = msg.chat.id;
 
@@ -47,6 +54,7 @@ bot.onText(/\/join/, (msg) => {
   }
 });
 
+// Handle the /end command
 bot.onText(/\/end/, (msg) => {
   const chatId = msg.chat.id;
 
@@ -63,6 +71,7 @@ bot.onText(/\/end/, (msg) => {
   delete activeChats[partnerId];
 });
 
+// Handle incoming messages
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
 
@@ -77,7 +86,7 @@ bot.on('message', (msg) => {
   }
 });
 
-// Start express server
+// Start the express server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
