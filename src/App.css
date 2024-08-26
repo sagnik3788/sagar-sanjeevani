@@ -1,0 +1,96 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-side {
+  width: 50%;
+  padding: 20px;
+  background-color: white;
+}
+
+.right-side {
+  width: 50%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1em;
+  color: #666;
+}
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-side {
+  width: 50%;
+  padding: 20px;
+  background-color: white;
+}
+
+.right-side {
+  width: 50%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1em;
+  color: #666;
+}
+
+.leaflet-tooltip {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+.leaflet-tooltip h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+}
+
+.leaflet-tooltip p {
+  margin: 5px 0;
+}
+/* App.css */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-side {
+  width: 30%;
+  overflow-y: scroll;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.right-side {
+  width: 70%;
+  height: 100%;
+}
+
+.beach-report {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.beach-report h3 {
+  margin-top: 0;
+}
