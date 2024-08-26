@@ -1,10 +1,22 @@
-import React, { useState, useEffect ,useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Tooltip ,useMap } from 'react-leaflet';
+import React, { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
-import CurrentGraph from './CurrentGraph'; // Import if needed or remove if not used
-import BeachReport from './BeachReport'; // Correct import for BeachReport
+import BeachReport from './BeachReport';
+import CurrentGraph from './CurrentGraph';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip as ChartTooltip, Legend } from 'chart.js';
+import { Line } from 'react-chartjs-2';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  ChartTooltip,
+  Legend
+);
 
 // Custom marker icons
 const greenIcon = new L.Icon({
@@ -208,6 +220,13 @@ const initialBeaches = [
   }
 ];
 
+const generateGraphData = (beaches, attribute, min, max) => {
+  return beaches.map(beach => ({
+    name: beach.name,
+    value: (Math.random() * (max - min) + min).toFixed(2), // Random value within the range
+  }));
+};
+
 const MapViewUpdater = ({ hoveredBeach }) => {
   const map = useMap();
 
@@ -238,7 +257,7 @@ const App = () => {
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
 
-  const graphData = beaches.map(beach => ({
+  const graphData1 = beaches.map(beach => ({
     name: beach.name,
     currentSpeed: parseFloat(beach.currentSpeed.split(' ')[0]), // Convert "0.2 m/s" to 0.2
     currentStrength: beach.currentStrength === 'Very High' ? 4 :
@@ -246,10 +265,51 @@ const App = () => {
       beach.currentStrength === 'Moderate' ? 2 : 1 // Convert strength to a numerical value
   }));
 
+  // Generate dummy data for graphs
+  const pHData = generateGraphData(beaches, 'pH', 6.5, 8.5);
+  const turbidityData = generateGraphData(beaches, 'turbidity', 0, 100);
+  const salinityData = generateGraphData(beaches, 'salinity', 30, 40);
+
+  const createGraph = (label, data, color) => {
+    return {
+      labels: data.map(item => item.name), // X-axis labels
+      datasets: [
+        {
+          label,
+          data: data.map(item => item.value), // Y-axis data
+          backgroundColor: color,
+          borderColor: color,
+          fill: false,
+          tension: 0.1,
+        },
+      ],
+      options: {
+        scales: {
+          x: {
+            type: 'category',
+          },
+          y: {
+            type: 'linear',
+          },
+        },
+      },
+    };
+  };
+
   return (
     <div className="app-container" style={{ height: '100vh', display: 'flex' }}>
       <div className="left-side" style={{ flex: 1, overflowY: 'auto' }}>
         <h2>Beach Report and Analytics</h2>
+        <h3>Current</h3>
+        <CurrentGraph data={graphData1} />
+        <h3>pH Levels</h3>
+        <Line key="ph-graph" data={createGraph('pH Level', pHData, 'rgba(75,192,192,1)')} />
+
+        <h3>Turbidity Levels</h3>
+        <Line key="turbidity-graph" data={createGraph('Turbidity Level', turbidityData, 'rgba(255,99,132,1)')} />
+
+        <h3>Salinity Levels</h3>
+        <Line key="salinity-graph" data={createGraph('Salinity Level', salinityData, 'rgba(54,162,235,1)')} />
         {beaches.map((beach) => (
           <BeachReport
             key={beach.name}
@@ -259,7 +319,7 @@ const App = () => {
             isHighlighted={hoveredBeach === beach}
           />
         ))}
-        <CurrentGraph data={graphData} />
+      
       </div>
       <div className="right-side" style={{ flex: 1 }}>
         <MapContainer
