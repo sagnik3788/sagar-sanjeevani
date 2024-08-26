@@ -1,8 +1,12 @@
 import React from 'react';
 
-const BeachReport = ({ beach }) => {
+const BeachReport = ({ beach, onMouseEnter, onMouseLeave, isHighlighted }) => {
   return (
-    <div className="beach-report">
+    <div
+      className={`beach-report ${isHighlighted ? 'highlighted' : ''}`}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       <h3>{beach.name}</h3>
       <ul>
         <li><strong>Wind Speed:</strong> {beach.windSpeed}</li>
@@ -11,7 +15,7 @@ const BeachReport = ({ beach }) => {
         <li><strong>Temperature:</strong> {beach.temperature}</li>
       </ul>
       {!beach.safe && (
-        <p className="warning">WARNING: High risk conditions!</p>
+        <p className="warning">WARNING: High-risk conditions!</p>
       )}
     </div>
   );
