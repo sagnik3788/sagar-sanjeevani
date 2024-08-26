@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
@@ -192,32 +192,70 @@ const initialBeaches = [
     temperature: "27°C"
   },
   {
-    name: "Muzhappilangad Drive-in Beach",
-    position: [11.7923, 75.4422],
+    name: "Sagar Island Beach",
+    position: [21.6491, 88.0786],
+    safe: false,
+    windSpeed: "20 km/h",
+    currentStrength: "High",
+    currentSpeed: "1.1 m/s",
+    temperature: "27°C"
+  },
+  {
+    name: "Talasari Beach",
+    position: [21.5788, 87.4486],
     safe: true,
     windSpeed: "9 km/h",
     currentStrength: "Low",
-    currentSpeed: "0.2 m/s",
-    temperature: "30°C"
+    currentSpeed: "0.3 m/s",
+    temperature: "29°C"
   },
   {
-    name: "Thottada Beach",
-    position: [11.7971, 75.4238],
+    name: "Gopalpur Beach",
+    position: [19.2597, 84.9080],
     safe: true,
     windSpeed: "10 km/h",
-    currentStrength: "Moderate",
-    currentSpeed: "0.6 m/s",
+    currentStrength: "Low",
+    currentSpeed: "0.4 m/s",
     temperature: "28°C"
   },
   {
-    name: "Kannur Beach",
-    position: [11.8745, 75.3704],
-    safe: true,
-    windSpeed: "15 km/h",
-    currentStrength: "Moderate",
-    currentSpeed: "0.7 m/s",
+    name: "Lalaji Bay Beach",
+    position: [12.1214, 93.0602],
+    safe: false,
+    windSpeed: "10 km/h",
+    currentStrength: "Low",
+    currentSpeed: "0.3 m/s",
+    temperature: "28°C"
+  },
+
+  {
+    name: "Laxmanpur Beach",
+    position: [11.6667, 93.0167],
+    safe: false,
+    windSpeed: "8 km/h",
+    currentStrength: "Low",
+    currentSpeed: "0.2 m/s",
     temperature: "29°C"
+  },
+  {
+    name: "Merk Bay Beach",
+    position: [12.3384, 92.9167],
+    safe: true,
+    windSpeed: "11 km/h",
+    currentStrength: "Low",
+    currentSpeed: "0.3 m/s",
+    temperature: "27°C"
+  },
+  {
+    name: "Baludera Beach",
+    position: [12.0144, 92.9513],
+    safe: true,
+    windSpeed: "14 km/h",
+    currentStrength: "Moderate",
+    currentSpeed: "0.5 m/s",
+    temperature: "28°C"
   }
+  
 ];
 
 const generateGraphData = (beaches, attribute, min, max) => {
@@ -328,6 +366,7 @@ const App = () => {
           style={{ height: '100%', width: '100%' }}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <MapViewUpdater hoveredBeach={hoveredBeach} />
           {beaches.map((beach) => (
             <Marker
               key={beach.name}
