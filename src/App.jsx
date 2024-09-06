@@ -45,7 +45,8 @@ const initialBeaches = [
     windSpeed: "10 km/h",
     currentStrength: "Low",
     currentSpeed: "0.2 m/s",
-    temperature: "30°C"
+    temperature: "30°C",
+    Grade: "A"
   },
   {
     name: "Juhu Beach",
@@ -54,7 +55,8 @@ const initialBeaches = [
     windSpeed: "8 km/h",
     currentStrength: "Moderate",
     currentSpeed: "0.4 m/s",
-    temperature: "29°C"
+    temperature: "29°C",
+    Grade: "B"
   },
   {
     name: "Radhanagar Beach",
@@ -63,7 +65,8 @@ const initialBeaches = [
     windSpeed: "20 km/h",
     currentStrength: "High",
     currentSpeed: "1.0 m/s",
-    temperature: "27°C"
+    temperature: "27°C",
+    Grade: "D"
   },
   {
     name: "Varkala Beach",
@@ -72,7 +75,8 @@ const initialBeaches = [
     windSpeed: "15 km/h",
     currentStrength: "Moderate",
     currentSpeed: "0.6 m/s",
-    temperature: "28°C"
+    temperature: "28°C",
+    Grade: "A"
   },
   {
     name: "Palolem Beach",
@@ -81,7 +85,8 @@ const initialBeaches = [
     windSpeed: "12 km/h",
     currentStrength: "Low",
     currentSpeed: "0.3 m/s",
-    temperature: "28°C"
+    temperature: "28°C",
+    Grade: "C"
   },
   {
     name: "Kovalam Beach",
@@ -90,7 +95,8 @@ const initialBeaches = [
     windSpeed: "14 km/h",
     currentStrength: "Moderate",
     currentSpeed: "0.5 m/s",
-    temperature: "29°C"
+    temperature: "29°C",
+    Grade: "B"
   },
   {
     name: "Puri Beach",
@@ -99,7 +105,8 @@ const initialBeaches = [
     windSpeed: "22 km/h",
     currentStrength: "High",
     currentSpeed: "1.1 m/s",
-    temperature: "30°C"
+    temperature: "30°C",
+    Grade: "A"
   },
   {
     name: "Elephant Beach",
@@ -108,7 +115,8 @@ const initialBeaches = [
     windSpeed: "16 km/h",
     currentStrength: "Moderate",
     currentSpeed: "0.7 m/s",
-    temperature: "27°C"
+    temperature: "27°C",
+    Grade: "A"
   },
   {
     name: "Gokarna Beach",
@@ -117,7 +125,8 @@ const initialBeaches = [
     windSpeed: "9 km/h",
     currentStrength: "Low",
     currentSpeed: "0.2 m/s",
-    temperature: "29°C"
+    temperature: "29°C",
+    Grade: "B"
   },
   {
     name: "Mandrem Beach",
@@ -126,7 +135,8 @@ const initialBeaches = [
     windSpeed: "18 km/h",
     currentStrength: "Very High",
     currentSpeed: "1.3 m/s",
-    temperature: "26°C"
+    temperature: "26°C",
+    Grade: "C"
   },
   {
     name: "Agatti Island Beach",
@@ -135,7 +145,8 @@ const initialBeaches = [
     windSpeed: "13 km/h",
     currentStrength: "Low",
     currentSpeed: "0.4 m/s",
-    temperature: "28°C"
+    temperature: "28°C",
+   Grade: "A"
   },
   {
     name: "Bangaram Beach",
@@ -144,7 +155,8 @@ const initialBeaches = [
     windSpeed: "11 km/h",
     currentStrength: "Moderate",
     currentSpeed: "0.6 m/s",
-    temperature: "27°C"
+    temperature: "27°C",
+    Grade: "B"
   },
   {
     name: "Minicoy Beach",
@@ -153,7 +165,8 @@ const initialBeaches = [
     windSpeed: "10 km/h",
     currentStrength: "Low",
     currentSpeed: "0.3 m/s",
-    temperature: "29°C"
+    temperature: "29°C",
+    Grade: "A"
   },
   {
     name: "Alleppey Beach",
@@ -162,7 +175,8 @@ const initialBeaches = [
     windSpeed: "12 km/h",
     currentStrength: "Moderate",
     currentSpeed: "0.5 m/s",
-    temperature: "28°C"
+    temperature: "28°C",
+    Grade: "D"
   },
   {
     name: "Cherai Beach",
@@ -171,7 +185,8 @@ const initialBeaches = [
     windSpeed: "13 km/h",
     currentStrength: "Low",
     currentSpeed: "0.4 m/s",
-    temperature: "29°C"
+    temperature: "29°C",
+    Grade: "A"
   },
   {
     name: "Bekal Beach",
@@ -180,7 +195,8 @@ const initialBeaches = [
     windSpeed: "14 km/h",
     currentStrength: "Moderate",
     currentSpeed: "0.5 m/s",
-    temperature: "28°C"
+    temperature: "28°C",
+    Grade: "B"
   },
   {
     name: "Kappad Beach",
@@ -189,7 +205,8 @@ const initialBeaches = [
     windSpeed: "20 km/h",
     currentStrength: "High",
     currentSpeed: "1.0 m/s",
-    temperature: "27°C"
+    temperature: "27°C",
+    Grade: "B"
   },
   {
     name: "Sagar Island Beach",
@@ -198,7 +215,8 @@ const initialBeaches = [
     windSpeed: "20 km/h",
     currentStrength: "High",
     currentSpeed: "1.1 m/s",
-    temperature: "27°C"
+    temperature: "27°C",
+    Grade: "C"
   },
   {
     name: "Talasari Beach",
@@ -207,7 +225,8 @@ const initialBeaches = [
     windSpeed: "9 km/h",
     currentStrength: "Low",
     currentSpeed: "0.3 m/s",
-    temperature: "29°C"
+    temperature: "29°C",
+    Grade: "A"
   },
   {
     name: "Gopalpur Beach",
@@ -216,7 +235,8 @@ const initialBeaches = [
     windSpeed: "10 km/h",
     currentStrength: "Low",
     currentSpeed: "0.4 m/s",
-    temperature: "28°C"
+    temperature: "28°C",
+    Grade: "D"
   },
   {
     name: "Lalaji Bay Beach",
@@ -225,7 +245,8 @@ const initialBeaches = [
     windSpeed: "10 km/h",
     currentStrength: "Low",
     currentSpeed: "0.3 m/s",
-    temperature: "28°C"
+    temperature: "28°C",
+    Grade: "A"
   },
 
   {
@@ -235,7 +256,9 @@ const initialBeaches = [
     windSpeed: "8 km/h",
     currentStrength: "Low",
     currentSpeed: "0.2 m/s",
-    temperature: "29°C"
+    temperature: "29°C",
+    Grade: "A"
+
   },
   {
     name: "Merk Bay Beach",
@@ -244,7 +267,8 @@ const initialBeaches = [
     windSpeed: "11 km/h",
     currentStrength: "Low",
     currentSpeed: "0.3 m/s",
-    temperature: "27°C"
+    temperature: "27°C",
+    Grade: "D"
   },
   {
     name: "Baludera Beach",
@@ -253,7 +277,8 @@ const initialBeaches = [
     windSpeed: "14 km/h",
     currentStrength: "Moderate",
     currentSpeed: "0.5 m/s",
-    temperature: "28°C"
+    temperature: "28°C",
+    Grade: "A"
   }
   
 ];
@@ -290,7 +315,7 @@ const App = () => {
           currentSpeed: `${(Math.random() * 1.5).toFixed(1)} m/s`,
         }))
       );
-    }, 5000); // Update data every 5 seconds
+    }, 500000000); // Update data every 5 seconds
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
@@ -336,8 +361,9 @@ const App = () => {
 
   return (
     <div className="app-container" style={{ height: '100vh', display: 'flex' }}>
+      <div className="app-header">Sagar Sanjeevani</div>
       <div className="left-side" style={{ flex: 1, overflowY: 'auto' }}>
-        <h2>Beach Report and Analytics</h2>
+        <h2 className='beach-re'>Beach Report and Analytics</h2>
         <h3>Current</h3>
         <CurrentGraph data={graphData1} />
         <h3>pH Levels</h3>
@@ -380,6 +406,8 @@ const App = () => {
                   <p><strong>Current Strength:</strong> {beach.currentStrength}</p>
                   <p><strong>Current Speed:</strong> {beach.currentSpeed}</p>
                   <p><strong>Temperature:</strong> {beach.temperature}</p>
+                  <p><strong>Grade:</strong> {beach.Grade}</p>
+
                   {!beach.safe && (
                     <p style={{ color: 'red', fontWeight: 'bold' }}>
                       WARNING: High-risk conditions!

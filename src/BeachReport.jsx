@@ -1,4 +1,5 @@
 import React from 'react';
+import './BeachReport.css'; // Make sure to import the CSS file
 
 const BeachReport = ({ beach, onMouseEnter, onMouseLeave, isHighlighted }) => {
   return (
@@ -7,6 +8,9 @@ const BeachReport = ({ beach, onMouseEnter, onMouseLeave, isHighlighted }) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
+      <div className="grade-container">
+        <strong className="grade">Grade:{beach.Grade}</strong>
+      </div>
       <h3>{beach.name}</h3>
       <ul>
         <li><strong>Wind Speed:</strong> {beach.windSpeed}</li>

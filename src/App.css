@@ -122,6 +122,10 @@ p {
   flex: 1;
 }
 
+.beach-re{
+  margin-top: 50px;
+}
+
 /* Beach report card styling */
 .beach-report {
   background-color: white;
@@ -186,3 +190,29 @@ p {
 .leaflet-tooltip p strong {
   font-weight: bold;
 }
+/* App.css */
+
+/* App.css */
+
+.app-header {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  transform: translateX(-50%);
+  background-color: #009688; /* Cool teal color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0 0 10px 10px;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 10; /* Ensure it appears above other content */
+  text-align: center;
+}
+
+
+
+
+
+
+
+
