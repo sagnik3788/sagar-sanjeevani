@@ -363,7 +363,7 @@ const App = () => {
     <div className="app-container" style={{ height: '100vh', display: 'flex' }}>
       <div className="app-header">Sagar Sanjeevani</div>
       <div className="left-side" style={{ flex: 1, overflowY: 'auto' }}>
-        <h2 className='beach-re'>Beach Report and Analytics</h2>
+        <h2 className='beach-re'>Beach Report and Analytics(Dummy Data)</h2>
         <h3>Current</h3>
         <CurrentGraph data={graphData1} />
         <h3>pH Levels</h3>
